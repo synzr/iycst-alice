@@ -1,0 +1,19 @@
+{
+  "where": {
+    "code": "null"
+  },
+  "feedWhere": {
+    "allowFeed": {
+      "equals": true
+    },
+    "active": {
+      "equals": true
+    }
+  },
+  "feedTake": 15,
+  "moreWhere": {
+    "activeFrom": {
+      "gte": "null"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "VERSTOV_GRAPHQL_ENDPOINT_URL": "https://api.verstov.info/graphql",
+  "VERSTOV_GRAPHQL_OPERATION_NAME": "DetailPost",
+  "VERSTOV_PAGE_CODE": "uznayte-uchitsya-li-vash-rebenok-segodnya"
+}

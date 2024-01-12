@@ -1,0 +1,143 @@
+query DetailPost($where: PostWhereUniqueInput!, $feedTake: Int!, $feedWhere: PostWhereInput, $moreWhere: PostWhereInput) {
+  feed: posts(where: $feedWhere, take: $feedTake, orderBy: {sort: desc}) {
+    nodes {
+      ...FeedPost
+      __typename
+    }
+    __typename
+  }
+  post: post(where: $where) {
+    id
+    code
+    name
+    previewText
+    detailText
+    activeFrom
+    source
+    viewCount
+    tags
+    allowComments
+    allowCommentsOnlyAuth
+    photoreport
+    count_comments
+    vote_id
+    useInterscroller
+    bannersToHide
+    ...PostOrd
+    seo {
+      ...ElementSeo
+      __typename
+    }
+    gallery(orderBy: {sort: asc}) {
+      id
+      url
+      __typename
+    }
+    gallery2(orderBy: {sort: asc}) {
+      id
+      url
+      __typename
+    }
+    gallery3(orderBy: {sort: asc}) {
+      id
+      url
+      __typename
+    }
+    gallery4(orderBy: {sort: asc}) {
+      id
+      url
+      __typename
+    }
+    gallery5(orderBy: {sort: asc}) {
+      id
+      url
+      __typename
+    }
+    detailPicture {
+      id
+      url
+      description
+      __typename
+    }
+    parentSection {
+      id
+      code
+      name
+      __typename
+    }
+    __typename
+  }
+  more: posts(take: 4, where: $moreWhere, orderBy: {comments: {_count: desc}}) {
+    nodes {
+      ...Post
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment FeedPost on Post {
+  id
+  name
+  previewText
+  activeFrom
+  code
+  highlighted
+  count_comments
+  ...PostOrd
+  parentSection {
+    id
+    code
+    __typename
+  }
+  __typename
+}
+
+fragment PostOrd on Post {
+  ordName
+  ordInn
+  ordId
+  ordUrl
+  __typename
+}
+
+fragment ElementSeo on Seo {
+  elementMetaTitle
+  elementMetaDescription
+  elementMetaKeywords
+  __typename
+}
+
+fragment Post on Post {
+  id
+  name
+  previewText
+  activeFrom
+  code
+  count_comments
+  ...PostOrd
+  previewPicture {
+    id
+    url
+    description
+    __typename
+  }
+  parentSection {
+    id
+    name
+    code
+    seo {
+      ...SectionSeo
+      __typename
+    }
+    __typename
+  }
+  __typename
+}
+
+fragment SectionSeo on Seo {
+  sectionMetaTitle
+  sectionMetaKeywords
+  sectionMetaDescription
+  __typename
+}
